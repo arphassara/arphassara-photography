@@ -1,17 +1,15 @@
-// Copyright year
 document.addEventListener('DOMContentLoaded', () => {
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 });
 
-// Intro: curtain + ENTER
 document.addEventListener('DOMContentLoaded', () => {
   const intro    = document.getElementById('intro');
   const enterBtn = document.getElementById('enterBtn');
 
   function openIntro() {
     if (!intro) return;
-    intro.classList.add('open'); // trigger curtains
+    intro.classList.add('open'); 
     setTimeout(() => {
       intro.classList.add('hidden');
       const target = document.getElementById('exhibit') || document.getElementById('home') || document.body;
@@ -23,13 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('keydown', (e) => { if (e.key === 'Enter') openIntro(); });
 });
 
-// Reveal on scroll
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
 }, { threshold: 0.2 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Lightbox
 (() => {
   const dlg = document.getElementById('lightbox');
   if (!dlg) return;
@@ -56,7 +52,6 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   });
 })();
 
-// Before/After slider
 (() => {
   const ba = document.querySelector('.ba-wrap');
   if (!ba) return;
@@ -67,15 +62,14 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   update(range.value);
 })();
 
-// Curtain Intro
 window.addEventListener("DOMContentLoaded", () => {
   const intro = document.getElementById("intro");
   const btn = document.getElementById("enter-btn");
 
   if(btn){
     btn.addEventListener("click", () => {
-      intro.classList.add("open");   // ม่านเปิดออก
-      setTimeout(() => intro.style.display = "none", 1600); // ซ่อน intro หลังแอนิเมชัน
+      intro.classList.add("open");  
+      setTimeout(() => intro.style.display = "none", 1600); 
     });
   }
 });
